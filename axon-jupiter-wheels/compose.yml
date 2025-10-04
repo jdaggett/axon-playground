@@ -1,0 +1,42 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: axoniq-build-postgres
+    environment:
+      POSTGRES_DB: axoniq_build_db
+      POSTGRES_USER: axon_user
+      POSTGRES_PASSWORD: axon_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - axoniq-build-network
+    restart: unless-stopped
+
+  axon-server:
+    image: axoniq/axonserver:latest-jdk-17
+    ports:
+      - "8024:8024"
+      - "8124:8124"
+    environment:
+      axoniq_axonserver_hostname: axon-server
+      axoniq_axonserver_autocluster_first: axon-server
+      axoniq_axonserver_autocluster_contexts: _admin,default
+    networks:
+      - axoniq-build-network
+    volumes:
+      - data:/axonserver/data
+      - events:/axonserver/events
+
+volumes:
+  postgres_data:
+  data:
+    driver: local
+  events:
+    driver: local
+
+networks:
+  axoniq-build-network:
+    driver: bridge

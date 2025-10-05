@@ -1,7 +1,0 @@
-package io.axoniq.build.jupiter_wheels.bikes_view.api
-
-import kotlin.collections.List
-
-public data class SimilarNearbyBikesList(
-  public val bikes: List<BikeItem>,
-)

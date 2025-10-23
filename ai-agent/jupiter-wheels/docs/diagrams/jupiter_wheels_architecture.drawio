@@ -1,0 +1,600 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.7 Chrome/138.0.7204.251 Electron/37.7.1 Safari/537.36" version="28.2.7">
+  <diagram name="Jupiter Wheels - System Architecture" id="jupiter-wheels-architecture">
+    <mxGraphModel dx="3586" dy="2446" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="background" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=none;fontColor=#030303;labelBorderColor=light-dark(default, #3b3b3b);" parent="1" vertex="1">
+          <mxGeometry x="-120" y="-12.5" width="2400" height="1600" as="geometry" />
+        </mxCell>
+        <mxCell id="main-title" value="Jupiter Wheels - Event-Sourced Bike Rental System Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="400" y="30" width="1600" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Domain-Driven Design with Event Sourcing &amp;amp; CQRS using Axon Framework" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=2;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="400" y="80" width="1600" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=2;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="40" y="140" width="320" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-title" value="LEGEND" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="40" y="150" width="320" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-boundary-example" value="Consistency Boundary" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;fontSize=12;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="70" y="200" width="260" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-external-example" value="External Integration" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=3;fontSize=12;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="70" y="255" width="260" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-event-arrow" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#82b366;fontSize=12;fontColor=#030303;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="70" y="325" as="sourcePoint" />
+            <mxPoint x="210" y="325" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-event-label" value="Event Flow (Async)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="220" y="310" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-command-arrow" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#d79b00;dashed=1;dashPattern=8 8;fontSize=12;fontColor=#030303;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="70" y="365" as="sourcePoint" />
+            <mxPoint x="210" y="365" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-command-label" value="Command (Sync)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="220" y="350" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-aggregate-label" value="🏷️ Aggregate Root Tag" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="70" y="405" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-issue-label" value="⚠️ Design Issue" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="70" y="445" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fleet-boundary" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;verticalAlign=top;shadow=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="420" y="180" width="380" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="fleet-header" value="BIKE FLEET MANAGEMENT" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="420" y="190" width="380" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fleet-aggregate" value="🏷️ Aggregate: BikeId" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="495" y="225" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fleet-commands-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=1;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="445" y="270" width="330" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="fleet-commands-title" value="Commands" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="455" y="275" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="fleet-commands-list" value="• CreateNewBike(location, bikeType, condition)&#xa;• RemoveBikeFromFleet(bikeId, removalReason)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Courier New;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="465" y="305" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fleet-events-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="445" y="395" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="fleet-events-title" value="Events Published" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="455" y="400" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="fleet-events-list" value="• BikeCreated @EventTag(Bike)&#xa;• BikeMarkedAsAvailable @EventTag(Bike)&#xa;• BikeRemovedFromFleet @EventTag(Bike)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Courier New;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="465" y="430" width="300" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="fleet-invariants-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="445" y="510" width="330" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="fleet-invariants-title" value="Business Invariants" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="455" y="515" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="fleet-invariants-list" value="✓ Auto-mark available on creation&#xa;✓ Bike cannot be removed twice&#xa;✓ Bike must exist before removal" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="465" y="540" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rental-boundary" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;verticalAlign=top;shadow=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="860" y="180" width="380" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="rental-header" value="BIKE RENTAL MANAGEMENT" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="860" y="190" width="380" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rental-aggregate" value="🏷️ Aggregate: (userId, bikeId)" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="920" y="225" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rental-issue-warning" value="⚠️ Spans 2 aggregates!" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="950" y="260" width="200" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="rental-commands-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=1;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="885" y="295" width="330" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="rental-commands-title" value="Commands" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="895" y="300" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="rental-commands-list" value="• RequestBikeRental(userId, bikeId)&#xa;• PaymentTimeout(rentalId) [deadline]" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Courier New;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="905" y="330" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rental-events-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="885" y="395" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="rental-events-title" value="Events Published" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="895" y="400" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="rental-events-list" value="• BikeRentalRequested @EventTag(Rental)&#xa;• RentalRequestRejectedTimeout @EventTag(Rental)&#xa;• RentalRequestRejectedCancellation @EventTag(Rental)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Courier New;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="905" y="430" width="300" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="rental-invariants-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="885" y="510" width="330" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="rental-invariants-title" value="Business Invariants" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="895" y="515" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="rental-invariants-list" value="✓ One active rental per bike&#xa;✓ Only available bikes rentable&#xa;✓ 10-minute payment timeout" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="905" y="540" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="payment-boundary" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;verticalAlign=top;shadow=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1300" y="180" width="380" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="payment-header" value="PAYMENT PROCESSING" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1300" y="190" width="380" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="payment-aggregate" value="🏷️ Aggregate: RentalId" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1375" y="225" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="payment-commands-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=1;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1325" y="270" width="330" height="135" as="geometry" />
+        </mxCell>
+        <mxCell id="payment-commands-title" value="Commands" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1335" y="275" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="payment-commands-list" value="• ReturnPaymentDetails(paymentId, rentalId)&#xa;• ConfirmPaymentSuccess(paymentId, rentalId)&#xa;• ReportPaymentFailure(failureReason, paymentId)&#xa;• RetryPayment(paymentMethod, rentalId)&#xa;• ConfirmPaymentCancellation(paymentId)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Courier New;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1345" y="305" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="payment-events-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1325" y="420" width="330" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="payment-events-title" value="Events Published" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1335" y="425" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="payment-events-list" value="• PaymentPrepared @EventTag(Rental)&#xa;• PaymentCompleted @EventTag(Rental)&#xa;• PaymentFailed @EventTag(Rental)&#xa;• PaymentCancelled @EventTag(Rental)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Courier New;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1345" y="455" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="payment-invariants-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1325" y="550" width="330" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="payment-invariants-title" value="Business Invariants" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1335" y="555" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="payment-invariants-list" value="✓ Success/Failure only on PREPARED payments&#xa;✓ Retry only on FAILED payments&#xa;✓ Cancel only on PREPARED payments&#xa;✓ State machine: PENDING→PREPARED→&#xa;  COMPLETED/FAILED/CANCELLED" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1345" y="580" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="usage-boundary" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;verticalAlign=top;shadow=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="410" y="680" width="390" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="usage-header" value="BIKE USAGE MANAGEMENT" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="420" y="690" width="380" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="usage-aggregate" value="🏷️ Aggregate: RentalId" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="495" y="725" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="usage-commands-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=1;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="445" y="770" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="usage-commands-title" value="Commands" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="455" y="775" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="usage-commands-list" value="• PauseRental(rentalId)&#xa;• ResumeRental(rentalId)&#xa;• EndRentalEarlyDueToProblem(problemDesc)&#xa;• RentalPauseTimeout(rentalId) [deadline]" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Courier New;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="460" y="795" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="usage-events-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="445" y="910" width="330" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="usage-events-title" value="Events Published" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="455" y="915" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="usage-events-list" value="• BikeMarkedAsInUse @EventTag(Bike)&#xa;• RentalPaused @EventTag(Rental)&#xa;• RentalResumed @EventTag(Rental)&#xa;• RentalEndedEarly @EventTag(Rental)&#xa;• ExtraFeesChargedExtendedPause @EventTag(Rental)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Courier New;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="465" y="932.5" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="usage-invariants-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="445" y="1060" width="330" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="usage-invariants-title" value="Business Invariants" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="455" y="1065" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="usage-invariants-list" value="✓ Only IN_USE rentals can be paused&#xa;✓ Only PAUSED rentals can be resumed&#xa;✓ 30-minute pause timeout → $5 fee&#xa;✓ Early termination allowed if IN_USE/PAUSED" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="460" y="1085" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="return-boundary" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;verticalAlign=top;shadow=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="860" y="680" width="380" height="530" as="geometry" />
+        </mxCell>
+        <mxCell id="return-header" value="BIKE RETURN MANAGEMENT" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="860" y="690" width="380" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="return-aggregate" value="🏷️ Aggregate: RentalId" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="935" y="725" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="return-commands-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=1;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="885" y="770" width="330" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="return-commands-title" value="Commands" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="895" y="775" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="return-commands-list" value="• ReturnBikeAtLocation(returnLocation, rentalId)&#xa;• SubmitBikePhoto(photoUrl, rentalId)&#xa;• ApproveOrRejectPhoto(approved, rentalId)&#xa;• ReportInspectionResults(inspectionPassed)&#xa;• SubmitReturnSurvey(feedback, rating)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Courier New;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="905" y="805" width="300" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="return-events-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="885" y="930" width="330" height="135" as="geometry" />
+        </mxCell>
+        <mxCell id="return-events-title" value="Events Published" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="895" y="935" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="return-events-list" value="• BikeReturned @EventTag(Rental)&#xa;• BikePhotoSubmitted @EventTag(Rental)&#xa;• PhotoFlaggedForReview @EventTag(Rental)&#xa;• BikeInspectionCompleted @EventTag(Rental)&#xa;• ReturnSurveySubmitted @EventTag(Rental)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Courier New;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="905" y="965" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="return-invariants-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="885" y="1080" width="330" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="return-invariants-title" value="Business Invariants" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="895" y="1085" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="return-invariants-list" value="✓ Photos auto-flagged for review&#xa;✓ Approved photo → triggers inspection&#xa;✓ Passed inspection → bike available&#xa;✓ Return location tracked&#xa;✓ Survey independent of inspection" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="905" y="1110" width="300" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="replacement-boundary" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;verticalAlign=top;shadow=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1300" y="720" width="380" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="replacement-header" value="BIKE REPLACEMENT MANAGEMENT" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1300" y="730" width="380" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="replacement-aggregate" value="🏷️ Aggregate: RentalId" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1375" y="765" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="replacement-commands-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=1;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1325" y="810" width="330" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="replacement-commands-title" value="Commands" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1335" y="815" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="replacement-commands-list" value="• RequestBikeReplacement(originalBikeId,&#xa;  rentalId, issueDescription)&#xa;• AssignReplacementBike(replacementBikeId)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Courier New;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1345" y="845" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="replacement-events-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1325" y="920" width="330" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="replacement-events-title" value="Events Published" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1335" y="925" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="replacement-events-list" value="• BikeReplacementRequested @EventTag(Bike)&#xa;• ReplacementBikeAssigned @EventTag(Rental)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Courier New;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1345" y="955" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="replacement-invariants-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1325" y="1030" width="330" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="replacement-invariants-title" value="Business Invariants" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1335" y="1035" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="replacement-invariants-list" value="✓ Assignment requires existing request&#xa;✓ Original bike ID preserved for tracking" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1345" y="1060" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="monitoring-boundary" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=3;verticalAlign=top;shadow=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1740" y="180" width="380" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="monitoring-header" value="BIKE MONITORING SYSTEM" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1740" y="190" width="380" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="monitoring-type" value="⚙️ External Integration (IoT Simulation)" style="text;html=1;strokeColor=#d79b00;fillColor=#ffe6cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1790" y="225" width="280" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="monitoring-desc-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=1;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1765" y="270" width="330" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="monitoring-desc-title" value="Integration Pattern" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1775" y="275" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="monitoring-desc-content" value="Listens to:&#xa;• BikeMarkedAsInUse&#xa;&#xa;Simulates IoT condition monitoring&#xa;&#xa;Triggers (via CommandGateway):&#xa;• RequestBikeReplacement&#xa;&#xa;Purpose: Detects mechanical issues&#xa;automatically when bike usage starts" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1785" y="305" width="300" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="extension-boundary" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=3;verticalAlign=top;shadow=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1740" y="500" width="380" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="extension-header" value="EXTENSION PROCESSING SYSTEM" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1740" y="510" width="380" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="extension-type" value="⚙️ External Integration (Approval System)" style="text;html=1;strokeColor=#d79b00;fillColor=#ffe6cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1790" y="545" width="280" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="extension-desc-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=1;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1765" y="590" width="330" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="extension-desc-title" value="Integration Pattern" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1775" y="595" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="extension-desc-content" value="Listens to:&#xa;• RentalExtensionRequested&#xa;&#xa;Validates extension requests&#xa;&#xa;Triggers (via CommandGateway):&#xa;• ApproveRentalExtension&#xa;&#xa;Purpose: External approval system&#xa;for rental time extensions" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1785" y="625" width="300" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="flow-fleet-rental" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#82b366;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=1;fontColor=#030303;" parent="1" source="fleet-events-box" target="rental-boundary" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-fleet-rental-label" value="BikeCreated" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=15;fontStyle=2;backgroundColor=#ffffff;fontColor=#030303;labelBorderColor=light-dark(#000000,#3399FF);labelBackgroundColor=#FFFFFF;" parent="flow-fleet-rental" vertex="1" connectable="0">
+          <mxGeometry x="-0.1" relative="1" as="geometry">
+            <mxPoint x="16" y="-8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-rental-payment" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#82b366;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;curved=1;fontColor=#030303;" parent="1" source="rental-events-box" target="payment-boundary" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1240" y="400" as="sourcePoint" />
+            <mxPoint x="1290" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-rental-payment-label" value="BikeRentalRequested" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;fontStyle=2;backgroundColor=#ffffff;fontColor=#030303;textShadow=1;labelBackgroundColor=#FFFFFF;" parent="flow-rental-payment" vertex="1" connectable="0">
+          <mxGeometry x="-0.1" relative="1" as="geometry">
+            <mxPoint y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-payment-usage" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#82b366;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;curved=1;fontColor=#030303;" parent="1" source="payment-boundary" target="usage-boundary" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1200" y="550" as="sourcePoint" />
+            <mxPoint x="850" y="750" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1100" y="580" />
+              <mxPoint x="900" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-payment-usage-label" value="PaymentCompleted" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;fontStyle=2;backgroundColor=#ffffff;fontColor=#030303;labelBackgroundColor=#FFFFFF;labelBorderColor=default;" parent="flow-payment-usage" vertex="1" connectable="0">
+          <mxGeometry x="-0.2" relative="1" as="geometry">
+            <mxPoint x="20" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-usage-return" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#82b366;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=1;fontColor=#030303;" parent="1" source="usage-boundary" target="return-boundary" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="800" y="900" as="sourcePoint" />
+            <mxPoint x="850" y="850" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-usage-return-label" value="Usage Complete" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontStyle=2;backgroundColor=#ffffff;fontColor=#030303;labelBackgroundColor=#FFFFFF;" parent="flow-usage-return" vertex="1" connectable="0">
+          <mxGeometry x="-0.1" relative="1" as="geometry">
+            <mxPoint y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-return-fleet" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#82b366;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;curved=1;fontColor=#030303;" parent="1" source="return-boundary" target="fleet-boundary" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="1000" as="sourcePoint" />
+            <mxPoint x="400" y="500" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="380" y="1100" />
+              <mxPoint x="380" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-return-fleet-label" value="BikeMarkedAsAvailable" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontStyle=2;backgroundColor=#ffffff;fontColor=#030303;labelBackgroundColor=#FFFFFF;" parent="flow-return-fleet" vertex="1" connectable="0">
+          <mxGeometry x="-0.1" relative="1" as="geometry">
+            <mxPoint x="10" y="-17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-usage-monitoring" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#82b366;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=1;fontColor=#030303;" parent="1" source="usage-boundary" target="monitoring-boundary" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="800" y="800" as="sourcePoint" />
+            <mxPoint x="1740" y="320" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1600" y="800" />
+              <mxPoint x="1600" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-usage-monitoring-label" value="BikeMarkedAsInUse" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontStyle=2;backgroundColor=#ffffff;fontColor=#030303;" parent="flow-usage-monitoring" vertex="1" connectable="0">
+          <mxGeometry x="-0.4" relative="1" as="geometry">
+            <mxPoint x="30" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-monitoring-replacement" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#d79b00;dashed=1;dashPattern=8 8;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;curved=1;fontColor=#030303;" parent="1" source="monitoring-boundary" target="replacement-boundary" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1930" y="460" as="sourcePoint" />
+            <mxPoint x="1680" y="800" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1930" y="600" />
+              <mxPoint x="1800" y="760" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-monitoring-replacement-label" value="RequestBikeReplacement&#xa;(Command)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontStyle=2;backgroundColor=#ffffff;fontColor=#030303;" parent="flow-monitoring-replacement" vertex="1" connectable="0">
+          <mxGeometry x="-0.2" relative="1" as="geometry">
+            <mxPoint x="20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-extension-usage" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#d79b00;dashed=1;dashPattern=8 8;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;curved=1;fontColor=#030303;" parent="1" source="extension-boundary" target="usage-boundary" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1740" y="640" as="sourcePoint" />
+            <mxPoint x="800" y="1040" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1600" y="640" />
+              <mxPoint x="1000" y="940" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-extension-usage-label" value="ApproveRentalExtension&#xa;(Command)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontStyle=2;backgroundColor=#ffffff;fontColor=#030303;" parent="flow-extension-usage" vertex="1" connectable="0">
+          <mxGeometry x="-0.3" relative="1" as="geometry">
+            <mxPoint x="40" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="infra-section" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;dashed=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="40" y="1240" width="2080" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="infra-label" value="REST API LAYER - Spring Boot Controllers (HTTP Endpoints)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="40" y="1255" width="2080" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tech-db" value="" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="40" y="1340" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="tech-db-label" value="PostgreSQL&#xa;Event Store&#xa;&#xa;Event Sourcing&#xa;+ Projections" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="40" y="1370" width="200" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="tech-axon" value="" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="280" y="1340" width="220" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="tech-axon-label" value="Axon Framework&#xa;Event Bus&#xa;Command Gateway" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="290" y="1370" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tech-spring" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="540" y="1340" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="tech-spring-label" value="Spring Boot&#xa;Dependency Injection&#xa;REST Controllers&#xa;Transaction Mgmt" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="540" y="1360" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="insights-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=2;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="780" y="1340" width="1340" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="insights-title" value="KEY ARCHITECTURE INSIGHTS &amp;amp; RECOMMENDATIONS" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="780" y="1350" width="1340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="insights-col1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="800" y="1390" width="310" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="insights-col1-title" value="Consistency Model" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="810" y="1395" width="290" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="insights-col1-content" value="✓ 6 Consistency Boundaries&#xa;✓ Strong consistency within boundaries&#xa;✓ Eventual consistency across boundaries&#xa;✓ Event-sourced state reconstruction&#xa;✓ 2 main aggregates: BikeId, RentalId&#xa;✓ EventCriteria filters by tags/types&#xa;✓ ProcessingContext for transactions" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="820" y="1425" width="280" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="insights-col2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=1;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1130" y="1390" width="310" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="insights-col2-title" value="⚠️ Identified Issues" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1140" y="1395" width="290" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="insights-col2-content" value="⚠ RentalState spans 2 aggregates&#xa;⚠ BikeMarkedAsAvailable from multiple sources&#xa;⚠ RequestBikeReplacement unclear ownership&#xa;⚠ No saga coordination for workflows&#xa;⚠ Missing compensation logic&#xa;⚠ No idempotency handling&#xa;⚠ External systems always trigger&#xa;⚠ Hard-coded timeout values" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1150" y="1425" width="280" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="insights-col3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1460" y="1390" width="310" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="insights-col3-title" value="✓ Recommendations" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1470" y="1395" width="290" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="insights-col3-content" value="✓ Implement RentalLifecycleSaga&#xa;✓ Add optimistic locking&#xa;✓ Create separate read models/projections&#xa;✓ Add idempotency checks (message IDs)&#xa;✓ Externalize timeouts to config&#xa;✓ Implement dead letter queue&#xa;✓ Add compensation transactions&#xa;✓ Split BikeMarkedAsAvailable event" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1480" y="1425" width="280" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="insights-col4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1790" y="1390" width="310" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="insights-col4-title" value="Design Patterns Used" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1800" y="1395" width="290" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="insights-col4-content" value="• Event Sourcing (@EventSourcedEntity)&#xa;• CQRS (Command/Query separation)&#xa;• Event-driven integration&#xa;• Deadline scheduling (timeouts)&#xa;• Virtual threads for async ops&#xa;• CommandGateway pattern&#xa;• EventTag for aggregate identification&#xa;• Domain-Driven Design boundaries" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1810" y="1425" width="280" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="workflow-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=2;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="40" y="560" width="320" height="410" as="geometry" />
+        </mxCell>
+        <mxCell id="workflow-title" value="TYPICAL RENTAL WORKFLOW" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="40" y="570" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="workflow-step1" value="1️⃣ Admin Creates Bike" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="70" y="615" width="260" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="workflow-arrow1" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;fontColor=#030303;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="199.5" y="650" as="sourcePoint" />
+            <mxPoint x="199.5" y="665" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="workflow-step2" value="2️⃣ User Requests Rental" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="70" y="665" width="260" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="workflow-arrow2" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;fontColor=#030303;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="199.5" y="700" as="sourcePoint" />
+            <mxPoint x="199.5" y="715" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="workflow-step3" value="3️⃣ Payment Processing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="70" y="715" width="260" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="workflow-arrow3" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;fontColor=#030303;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="199.5" y="750" as="sourcePoint" />
+            <mxPoint x="199.5" y="765" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="workflow-step4" value="4️⃣ Bike Usage Begins" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="70" y="765" width="260" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="workflow-arrow4" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;fontColor=#030303;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="199.5" y="800" as="sourcePoint" />
+            <mxPoint x="199.5" y="815" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="workflow-step5" value="5️⃣ [Optional] Pause/Resume" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="70" y="815" width="260" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="workflow-arrow5" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;fontColor=#030303;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="199.5" y="850" as="sourcePoint" />
+            <mxPoint x="199.5" y="865" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9mPz6eOTqBtY2bXjGEit-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fillColor=#0050ef;strokeColor=#001DBC;" edge="1" parent="1" source="timeout-container" target="usage-invariants-list">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="1075" />
+              <mxPoint x="390" y="1105" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="timeout-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=2;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="50" y="980" width="300" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="workflow-step6" value="6️⃣ [Optional] Bike Replacement" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="70" y="865" width="260" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="workflow-arrow6" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;fontColor=#030303;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="199.5" y="900" as="sourcePoint" />
+            <mxPoint x="199.5" y="915" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="workflow-step7" value="7️⃣ User Returns Bike" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="70" y="915" width="260" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="timeout-title" value="⏱️ DEADLINE TIMEOUTS" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="40" y="990" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="timeout-payment" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=1;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="70" y="1035" width="260" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="timeout-payment-content" value="⏰ Payment Timeout: 10 minutes&#xa;Triggers: RentalRequestRejectedTimeout" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1040" width="240" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="timeout-pause" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=1;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="70" y="1100" width="260" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="timeout-pause-content" value="⏰ Pause Timeout: 30 minutes&#xa;Triggers: ExtraFeesCharged ($5)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1105" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="tags-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=2;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1740" y="820" width="380" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="tags-title" value="🏷️ EVENT TAGGING STRATEGY" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1740" y="830" width="380" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tags-bike" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1770" y="875" width="320" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tags-bike-title" value="@EventTag(key = &quot;Bike&quot;)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;fontColor=#030303;fontFamily=Courier New;" parent="1" vertex="1">
+          <mxGeometry x="1780" y="880" width="300" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="tags-bike-content" value="Used by: Fleet, Usage, Replacement&#xa;Groups bike-centric events&#xa;Aggregate identifier: bikeId" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1780" y="910" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="tags-rental" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;verticalAlign=top;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1770" y="965" width="320" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="tags-rental-title" value="@EventTag(key = &quot;Rental&quot;)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;fontColor=#030303;fontFamily=Courier New;" parent="1" vertex="1">
+          <mxGeometry x="1780" y="970" width="300" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="tags-rental-content" value="Used by: Rental, Payment, Usage,&#xa;Return, Replacement, Extension&#xa;Groups rental-centric events&#xa;Aggregate identifier: rentalId" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="1780" y="1000" width="300" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="footer-text" value="Jupiter Wheels Event-Sourced Architecture | Axon Framework 4.x | PostgreSQL Event Store | Spring Boot 3.x | Domain-Driven Design | CQRS Pattern" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=2;fontColor=#030303;" parent="1" vertex="1">
+          <mxGeometry x="420" y="1560" width="1260" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
